@@ -1,0 +1,48 @@
+---
+title: "ggplot_hook"
+author: "Yousuf"
+date: "2023-01-23"
+output:
+  word_document: default
+  html_document: default
+  pdf_document: default
+---
+
+## Setting up my environment
+
+Notes: setting up my R environment by loading the 'tidyverse' and 'palmerpenguiens' packages
+
+```{r loading packages}
+library(tidyverse)
+library(palmerpenguins)
+
+```
+## Visualizations
+Here we will go through a series of visualizations
+ 
+### Flipper and body mass in purple
+Here we plot a flipper length against body mass
+
+```{r visualize filpper length and body mass in purple, warning=FALSE}
+ggplot(data = penguins,aes(x=flipper_length_mm,y=body_mass_g))+
+ geom_point(color="Purple")
+```
+
+
+### Flipper and body mass by species
+Here we plot a flipper length against body mass
+```{r species, warning=FALSE}
+ggplot(data = penguins,aes(x=flipper_length_mm,y=body_mass_g))+
+  geom_point(aes(shape=species))
+
+```
+
+### Flipper and body mass by species and sex
+Here we plot a flipper length against body mass
+
+```{r species and sex, warning=FALSE}
+ggplot(data = penguins,aes(x=flipper_length_mm,y=body_mass_g))+ 
+  geom_point(aes(color=species, shape=species))+
+  facet_wrap(~sex)
+```
+
